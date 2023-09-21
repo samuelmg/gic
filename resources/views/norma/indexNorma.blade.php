@@ -8,5 +8,11 @@
 </head>
 <body>
     <h1>Listado de Normas</h1>
+
+    <ul>
+    @foreach ($normas as $norma)
+        <li>{{ $norma->nombre }}</li>
+    @endforeach
+    </ul>
 </body>
 </html>

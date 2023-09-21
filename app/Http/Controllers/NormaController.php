@@ -12,7 +12,9 @@ class NormaController extends Controller
      */
     public function index()
     {
-        return view('norma/indexNorma');
+        $normas = Norma::all();
+        return view('norma/indexNorma', compact('normas'));
+            //->with(['normas' => $normas]);
     }
 
     /**
@@ -28,7 +30,13 @@ class NormaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $norma = new Norma();
+        $norma->nombre = $request->nombre;
+        $norma->referencia = $request->referencia;
+        $norma->tipo = $request->tipo;
+        $norma->save();
+
+        return redirect('/norma');
     }
 
     /**
