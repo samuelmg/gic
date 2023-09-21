@@ -9,11 +9,11 @@
 <body>
     <h1>Agregar Norma</h1>
 
-    <form action="/norma" method="post">
+    <form action="{{ route('norma.store') }}" method="post">
         @csrf
 
-        <label for="nomre">Nombre:</label><br>
-        <input type="text" name="nomre"><br>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" name="nombre"><br>
 
         <label for="referencia">Referncia:</label><br>
         <input type="text" name="referencia"><br>

@@ -8,5 +8,15 @@
 </head>
 <body>
     <h1>Listado de Normas</h1>
+
+    <ul>
+        @foreach ($normas as $norma)
+            <li>
+                <a href="{{ route('norma.show', $norma) }}">
+                    {{ $norma->nombre }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
 </body>
 </html>
