@@ -31,11 +31,11 @@ class NormaController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'nombre' => 'required|max:255',
-        //     'referencia' => 'required|url',
-        //     'tipo' => 'required',
-        // ]);
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'referencia' => 'required|url',
+            'tipo' => 'required',
+        ]);
         
         $norma = new Norma();
         $norma->nombre = $request->nombre;
@@ -60,7 +60,7 @@ class NormaController extends Controller
      */
     public function edit(Norma $norma)
     {
-        //
+        return view('normas.norma-edit', compact('norma'));
     }
 
     /**
@@ -68,7 +68,17 @@ class NormaController extends Controller
      */
     public function update(Request $request, Norma $norma)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'referencia' => 'required|url',
+            'tipo' => 'required',
+        ]);
+
+        $norma->nombre = $request->nombre;
+        $norma->referencia = $request->referencia;
+        $norma->tipo = $request->tipo;
+        $norma->save();
+        return redirect()->route('norma.index');
     }
 
     /**
@@ -76,6 +86,7 @@ class NormaController extends Controller
      */
     public function destroy(Norma $norma)
     {
-        //
+        $norma->delete();
+        return redirect()->route('norma.index');
     }
 }

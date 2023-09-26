@@ -15,6 +15,17 @@
                 <a href="{{ route('norma.show', $norma) }}">
                     {{ $norma->nombre }}
                 </a>
+                |
+                <a href="{{ route('norma.edit', $norma) }}">
+                    Editar
+                </a>
+                |
+                <form action="{{ route('norma.destroy', $norma) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Borrar">
+                </form>
+                
             </li>
         @endforeach
     </ul>
