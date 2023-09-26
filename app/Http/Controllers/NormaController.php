@@ -44,7 +44,8 @@ class NormaController extends Controller
      */
     public function show(Norma $norma)
     {
-        //
+        //$norma = Norma::find($id);
+        return view('norma.showNorma', compact('norma'));
     }
 
     /**
@@ -52,7 +53,7 @@ class NormaController extends Controller
      */
     public function edit(Norma $norma)
     {
-        //
+        return view('editar-algo', compact('norma'));
     }
 
     /**

@@ -12,7 +12,7 @@
         @csrf
 
         <label for="nombre">Nombre:</label><br>
-        <input type="text" name="nombre"><br>
+        <input type="text" name="nombre" value="{{ $norma->nombre }}"><br>
 
         <label for="referencia">Referencia:</label><br>
         <input type="text" name="referencia"><br>

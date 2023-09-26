@@ -11,7 +11,17 @@
 
     <ul>
     @foreach ($normas as $norma)
-        <li>{{ $norma->nombre }}</li>
+        <li>
+            <a href="{{ route('norma.show', $norma) }}">
+                {{ $norma->nombre }}
+            </a>
+            |
+            <a href="{{ route('norma.edit', $norma) }}">
+                Editar
+            </a>
+
+
+        </li>
     @endforeach
     </ul>
 </body>
