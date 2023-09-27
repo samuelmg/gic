@@ -8,19 +8,31 @@
 </head>
 <body>
     <h1>Agregar Norma</h1>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <form action="/norma" method="post">
         @csrf
 
         <label for="nombre">Nombre:</label><br>
-        <input type="text" name="nombre" value="{{ $norma->nombre }}"><br>
+        <input type="text" name="nombre" value="{{ old('nombre') }}"><br>
 
         <label for="referencia">Referencia:</label><br>
-        <input type="text" name="referencia"><br>
+        <input type="text" name="referencia" value="{{ old('referencia') }}"><br>
 
         <label for="tipo">Tipo</label><br>
         <select name="tipo">
-            <option value="ISO">ISO</option>
-            <option value="Ley">Ley</option>
+            <option value="ISO" @selected(old('tipo') == 'ISO')>ISO</option>
+            <option value="Ley" @selected(old('tipo') == 'Ley')>Ley</option>
+            <option value="Normativa" @selected(old('tipo') == 'Normativa')>Normativa</option>
         </select>
         <br>
         <input type="submit" value="Guardar">

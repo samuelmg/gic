@@ -13,15 +13,16 @@
         @method('PATCH')
 
         <label for="nombre">Nombre:</label><br>
-        <input type="text" name="nombre" value="{{ $norma->nombre }}"><br>
+        <input type="text" name="nombre" value="{{ old('nombre') ?? $norma->nombre }}"><br>
 
         <label for="referencia">Referencia:</label><br>
-        <input type="text" name="referencia" value="{{ $norma->referencia }}"><br>
+        <input type="text" name="referencia" value="{{ old('referencia') ?? $norma->referencia }}"><br>
 
         <label for="tipo">Tipo</label><br>
         <select name="tipo">
-            <option value="ISO" @selected($norma->tipo == 'ISO')>ISO</option>
-            <option value="Ley" @selected($norma->tipo == 'Ley')>Ley</option>
+            <option value="ISO" @selected( (old('tipo') ?? $norma->tipo) == 'ISO')>ISO</option>
+            <option value="Ley" @selected( (old('tipo') ?? $norma->tipo) == 'Ley')>Ley</option>
+            <option value="Normatividad" @selected( (old('tipo') ?? $norma->tipo) == 'Normatividad')>Normatividad</option>
         </select>
         <br>
         <input type="submit" value="Guardar">

@@ -30,6 +30,12 @@ class NormaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'referencia' => 'required',
+            'tipo' => 'required',
+        ]);
+        
         $norma = new Norma();
         $norma->nombre = $request->nombre;
         $norma->referencia = $request->referencia;
