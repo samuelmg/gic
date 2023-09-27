@@ -19,7 +19,12 @@
             <a href="{{ route('norma.edit', $norma) }}">
                 Editar
             </a>
-
+            |
+            <form action="{{ route('norma.destroy', $norma) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Eliminar</button>
+            </form>
 
         </li>
     @endforeach
