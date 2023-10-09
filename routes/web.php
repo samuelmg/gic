@@ -18,5 +18,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/plantilla', function () {
+    return view('plantilla');
+});
+
 //Route::get('norma/pdf', [NormaController::class, 'pdf'])->name('norma.pdf');
 Route::resource('norma', NormaController::class);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
