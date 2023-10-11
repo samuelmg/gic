@@ -33,7 +33,7 @@ class NormaController extends Controller
     {
         $request->validate([
             'nombre' => 'required|max:255',
-            'referencia' => 'required|url',
+            'referencia' => 'required',
             'tipo' => 'required',
         ]);
         

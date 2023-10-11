@@ -13,6 +13,14 @@
     </h1>
 
     <h2>Referencia: {{ $norma->referencia }}</h2>
+
+    <p>
+        <ul>
+            @foreach ($norma->requerimientos as $r)
+                <li>{{ $r->identificador }}</li>
+            @endforeach
+        </ul>
+    </p>
     
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NormaController;
+use App\Http\Controllers\RequerimientoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::get('prueba', function() {
 
 Route::get('norma/pdf', [NormaController::class, 'pdf'])->name('norma.pdf');
 Route::resource('norma', NormaController::class);
+Route::resource('req', RequerimientoController::class);
 
 Route::middleware([
     'auth:sanctum',

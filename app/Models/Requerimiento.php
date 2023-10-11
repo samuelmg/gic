@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Norma extends Model
+class Requerimiento extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
-    public function requerimientos()
+    public function norma()
     {
-        return $this->hasMany(Requerimiento::class);
+        return $this->belongsTo(Norma::class);
     }
 }
