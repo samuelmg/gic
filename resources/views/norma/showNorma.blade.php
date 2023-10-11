@@ -11,5 +11,13 @@
 
     <h2>Nombre de norma: {{ $norma->nombre }}</h2>
 
+    <ul>
+        @foreach ($norma->requerimientos as $req)
+            <li>
+                {{ $req->identificador }}
+            </li>
+        @endforeach
+    </ul>
+
 </body>
 </html>
