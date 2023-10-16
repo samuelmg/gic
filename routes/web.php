@@ -25,8 +25,10 @@ Route::get('/plantilla', function () {
 });
 
 //Route::get('norma/pdf', [NormaController::class, 'pdf'])->name('norma.pdf');
-Route::resource('norma', NormaController::class);
-Route::resource('requerimiento', RequerimientoController::class);
+// Route::middleware('auth')->group(function() {
+    Route::resource('norma', NormaController::class);
+    Route::resource('requerimiento', RequerimientoController::class);
+// });
 
 Route::middleware([
     'auth:sanctum',
