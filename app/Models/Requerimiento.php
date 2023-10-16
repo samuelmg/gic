@@ -9,6 +9,7 @@ class Requerimiento extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $fillable = ['norma_id', 'identificador', 'parrafo'];
 
     public function norma()
     {

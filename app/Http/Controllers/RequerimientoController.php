@@ -32,6 +32,9 @@ class RequerimientoController extends Controller
      */
     public function store(Request $request)
     {
+        // FORMA 3 RAPIDA
+        Requerimiento::create($request->all());
+
         // FORMA 1 DE GUAREDAR
         $req = new Requerimiento();
         $req->norma_id = $request->norma_id;
