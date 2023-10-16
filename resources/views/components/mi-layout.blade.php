@@ -24,6 +24,8 @@
   <link rel="shortcut icon" href="{{ asset('star/images/favicon.png') }}" />
 
   @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+  @livewireStyles
 </head>
 <body>
   <div class="container-scroller">
@@ -525,6 +527,9 @@
   <script src="{{ asset('star/js/dashboard.js') }}"></script>
   <script src="{{ asset('star/js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
+
+  @livewireScripts
+
 </body>
 
 </html>
