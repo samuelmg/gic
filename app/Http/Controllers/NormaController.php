@@ -36,12 +36,15 @@ class NormaController extends Controller
             'referencia' => 'required',
             'tipo' => 'required',
         ]);
-        
-        $norma = new Norma();
-        $norma->nombre = $request->nombre;
-        $norma->referencia = $request->referencia;
-        $norma->tipo = $request->tipo;
-        $norma->save();
+        // dd($request->all());
+
+        Norma::create($request->all());
+
+        // $norma = new Norma();
+        // $norma->nombre = $request->nombre;
+        // $norma->referencia = $request->referencia;
+        // $norma->tipo = $request->tipo;
+        // $norma->save();
 
         return redirect()->route('norma.index');
     }
@@ -70,14 +73,17 @@ class NormaController extends Controller
     {
         $request->validate([
             'nombre' => 'required|max:255',
-            'referencia' => 'required|url',
+            'referencia' => 'required',
             'tipo' => 'required',
         ]);
 
-        $norma->nombre = $request->nombre;
-        $norma->referencia = $request->referencia;
-        $norma->tipo = $request->tipo;
-        $norma->save();
+        Norma::where('id', $norma->id)
+            ->update($request->except('_token', '_method'));
+
+        // $norma->nombre = $request->nombre;
+        // $norma->referencia = $request->referencia;
+        // $norma->tipo = $request->tipo;
+        // $norma->save();
         return redirect()->route('norma.index');
     }
 
