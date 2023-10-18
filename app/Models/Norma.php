@@ -20,4 +20,9 @@ class Norma extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function organizaciones()
+    {
+        return $this->belongsToMany(Organizacion::class);
+    }
 }
