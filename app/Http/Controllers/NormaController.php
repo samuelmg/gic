@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Norma;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NormaController extends Controller
 {
@@ -17,7 +18,8 @@ class NormaController extends Controller
      */
     public function index()
     {
-        $normas = Norma::all();
+        $normas = Norma::where('user_id', Auth::id())->get();
+        
         return view('norma/indexNorma', compact('normas'));
             //->with(['normas' => $normas]);
     }
@@ -42,13 +44,18 @@ class NormaController extends Controller
         ]);
         
         // $request->all();
+        $request->merge(['user_id' => Auth::id()]);
         Norma::create($request->all());
 
         // $norma = new Norma();
         // $norma->nombre = $request->nombre;
         // $norma->referencia = $request->referencia;
         // $norma->tipo = $request->tipo;
+        // $norma->user_id = Auth::id(); // FORMA 1 DE AGREGAR USER_ID
         // $norma->save();
+
+        // $user = Auth::user();
+        // $user->normas()->save($norma);
 
         return redirect()->route('norma.index');
     }
