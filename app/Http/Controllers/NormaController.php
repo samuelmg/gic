@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class NormaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+                                //->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */

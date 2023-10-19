@@ -22,9 +22,10 @@ Route::get('prueba', function() {
     return view('prueba');
 });
 
-Route::get('norma/pdf', [NormaController::class, 'pdf'])->name('norma.pdf');
-Route::resource('norma', NormaController::class);
-Route::resource('req', RequerimientoController::class);
+// Route::middleware('auth')->group(function() {
+    Route::resource('norma', NormaController::class);//->middleware('auth');
+    Route::resource('req', RequerimientoController::class);
+// });
 
 Route::middleware([
     'auth:sanctum',
