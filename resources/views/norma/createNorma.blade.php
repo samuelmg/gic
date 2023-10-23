@@ -35,6 +35,16 @@
             <option value="Normativa" @selected(old('tipo') == 'Normativa')>Normativa</option>
         </select>
         <br>
+
+        <select name="organizacion_id[]" multiple>
+            @foreach ($orgs as $org)
+                <option value="{{ $org->id }}" @selected( array_search($org->id, old('organizacion_id') ?? []) !== false )>
+                    {{ $org->nombre }}
+                </option>
+            @endforeach
+        </select>
+
+        <br>
         <input type="submit" value="Guardar">
     </form>
 </body>

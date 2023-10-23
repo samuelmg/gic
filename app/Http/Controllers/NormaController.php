@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Norma;
+use App\Models\Organizacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,8 @@ class NormaController extends Controller
      */
     public function create()
     {
-        return view('norma/createNorma');
+        $orgs = Organizacion::all();
+        return view('norma/createNorma', compact('orgs'));
     }
 
     /**
@@ -45,7 +47,9 @@ class NormaController extends Controller
         
         // $request->all();
         $request->merge(['user_id' => Auth::id()]);
-        Norma::create($request->all());
+        $norma = Norma::create($request->all());
+
+        $norma->organizaciones()->attach($request->organizacion_id);
 
         // $norma = new Norma();
         // $norma->nombre = $request->nombre;
