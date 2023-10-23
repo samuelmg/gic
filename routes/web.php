@@ -17,10 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/inicio', function () {
-    return 'Página de Inicio';
-});
+Route::view('/inicio', 'landing');
 
 Route::get('/contacto', function () {
-    return 'Página de Contacto';
+    return view('contacto');
 });
