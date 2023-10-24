@@ -25,8 +25,9 @@ Route::get('/inicio', function () {
         ]);
 });
 
-Route::get('/contacto', function () {
-    $tipo = 'Persona Moral';
-    $rfc = 'ASDF123456';
-    return view('contacto', compact('tipo', 'rfc'));
+Route::get('/contacto/{tipo_persona?}', function (string $tipo_persona = null) {
+    if (!is_null($tipo_persona)) {
+        $tipo_persona = ucwords(str_replace('-', ' ', $tipo_persona));
+    }
+    return view('contacto', compact('tipo_persona'));
 });
