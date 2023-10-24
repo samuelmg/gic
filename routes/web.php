@@ -17,8 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/inicio', 'landing');
+Route::get('/inicio', function () {
+    return view('landing')
+        ->with([
+            'nombre' => 'Samuel',
+            'apellido' => 'Mercado'
+        ]);
+});
 
 Route::get('/contacto', function () {
-    return view('contacto');
+    $tipo = 'Persona Moral';
+    $rfc = 'ASDF123456';
+    return view('contacto', compact('tipo', 'rfc'));
 });

@@ -7,6 +7,8 @@
     <title>Contacto</title>
 </head>
 <body>
-    <h1>Formulario de Contacto</h1>
+    <h1>Contacto</h1>
+    <h2>Formulario para {{ $tipo }}</h2>
+    <h3>RFC: {{ $rfc }}</h3>
 </body>
 </html>

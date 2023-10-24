@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>Página de Inicio (landing page)</h1>
+    <h2>Hola {{ $nombre }} {{ $apellido }}</h2>
 </body>
 </html>
