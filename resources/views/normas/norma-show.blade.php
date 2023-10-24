@@ -21,6 +21,8 @@
             @endforeach
         </ul>
     </p>
+
+    <h4>Usuario que creó: {{ $norma->user->name }}</h4>
     
 </body>
 </html>
