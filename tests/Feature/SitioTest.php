@@ -18,13 +18,13 @@ class SitioTest extends TestCase
     }
 
     public function test_pagina_inicio_se_muestra():void {
-        $response = $this->get('/inicio');
+        $response = $this->get(route('inicio'));
         $response->assertStatus(200)
             ->assertSeeText('Página de Inicio');
     }
 
     public function test_pagina_contacto_se_muestra():void {
-        $response = $this->get('/contacto');
+        $response = $this->get(route('contacto'));
         $response->assertStatus(200);
     }
 }
