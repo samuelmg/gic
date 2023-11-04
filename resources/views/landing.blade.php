@@ -12,8 +12,9 @@
 
     <p>
         <h3>Formulario de Contacto:</h3>
-        <a href="/contacto/fisica">Personas Físicas</a>
-        <a href="/contacto/moral">Personas Morales</a>
+        <a href="{{ route('contacto') }}">Sin especificar</a>
+        <a href="{{ route('contacto', ['tipo_persona' => 'fisica']) }}">Personas Físicas</a>
+        <a href="{{ route('contacto', ['tipo_persona' => 'moral']) }}">Personas Moral</a>
     </p>
 </body>
 </html>

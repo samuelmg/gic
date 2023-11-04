@@ -23,5 +23,7 @@
         <textarea name="comentario" id="comentario" cols="30" rows="10"></textarea><br>
         <input type="submit" value="Enviar">
     </form>
+    <hr>
+    <a href="{{ route('inicio') }}">Regresar a Inicio</a>
 </body>
 </html>

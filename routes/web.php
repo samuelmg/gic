@@ -23,11 +23,11 @@ Route::get('/inicio', function () {
             'nombre' => 'Samuel',
             'apellido' => 'Mercado'
         ]);
-});
+})->name('inicio');
 
 Route::get('/contacto/{tipo_persona?}', function (string $tipo_persona = null) {
     if (!is_null($tipo_persona)) {
         $tipo_persona = ucwords(str_replace('-', ' ', $tipo_persona));
     }
     return view('contacto', compact('tipo_persona'));
-});
+})->name('contacto');
