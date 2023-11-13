@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,17 @@ Route::get('/contacto/{tipo_persona?}', function (string $tipo_persona = null) {
     }
     return view('contacto', compact('tipo_persona'));
 })->name('contacto');
+
+Route::post('/contacto', function (Request $request) {
+    // Recibir datos
+    $correo = $request->correo;
+
+    // Validación de datos
+    // Validación de que $correo es un correo
+
+    // Inserción a DB
+    // Insert into tabla (correo) value ('$correo')
+
+    // Redireccionamiento
+    return redirect()->route('inicio');
+})->name('contacto.post');

@@ -27,4 +27,10 @@ class SitioTest extends TestCase
         $response = $this->get(route('contacto'));
         $response->assertStatus(200);
     }
+
+    /** @test */
+    public function ruta_post_de_contacto_redirecciona_a_inicio():void {
+        $response = $this->post(route('contacto.post'));
+        $response->assertRedirectToRoute('inicio');
+    }
 }

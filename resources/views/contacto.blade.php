@@ -10,7 +10,8 @@
     <h1>Contacto</h1>
     <h2>Formulario para {{ $tipo_persona ?? 'público en general' }}</h2>
 
-    <form action="">
+    <form action="{{ route('contacto.post') }}" method="POST">
+        @csrf
         <label for="correo">Correo</label><br>
         <input type="text" name="correo" id="correo"><br>
         <label for="nombre">Nombre</label><br>
